@@ -1,0 +1,13 @@
+.hide {
+  transform: translateY(-100%);
+}
+
+#scrollArea {
+  background-color: wheat;
+  width: 100%;
+  top: 0;
+  transition: 0.3s;
+  z-index: 100;
+  font: "Yu Gothic";
+  font-size: 22px;
+}
