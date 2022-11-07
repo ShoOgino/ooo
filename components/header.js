@@ -15,29 +15,23 @@ const Header = (props) => {
   };
 
   useEffect(() => {
-    setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <>
-      <div id={styles.scrollArea}>
-        <div>objective oriented optimizer</div>
-        <FormControlLabel
-          control={<Switch defaultChecked />}
-          label="Darkmode"
-        />
-      </div>
       <div
         id={styles.scrollArea}
-        className={`${isShow ? "" : styles.hide}`}
-        style={{ position: "fixed" }}
+        className={`${isShow ? "" : styles.hide}
+          ${scrollY == 0 ? styles.top : styles.fixed}`}
       >
-        <div>objective oriented optimizer</div>
-        <FormControlLabel
-          control={<Switch defaultChecked />}
-          style={{ marginRight: 0, marginLeft: "auto", display: "block" }}
-        />
+        <div>
+          objective oriented optimizer
+          <FormControlLabel
+            control={<Switch defaultChecked />}
+            style={{ marginRight: 0, marginLeft: "auto" }}
+          />
+        </div>
       </div>
     </>
   );

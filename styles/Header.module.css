@@ -1,6 +1,12 @@
 .hide {
   transform: translateY(-100%);
 }
+.top {
+  position: top;
+}
+.fixed {
+  position: fixed;
+}
 
 #scrollArea {
   background-color: wheat;
