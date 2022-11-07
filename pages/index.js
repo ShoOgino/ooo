@@ -3,7 +3,7 @@ import Header from "../components/header";
 export default function Index() {
   return (
     <div>
-      <Header scroll="True"></Header>
+      <Header></Header>
       <div>aa</div>
       <div>test</div>
       <div>test</div>
