@@ -1,9 +1,12 @@
+import React, { useEffect, useState, useRef } from "react";
 import Header from "../components/header";
+import styles from "../styles/Index.module.css";
 
 export default function Index() {
+  const [isDarkMode, setIsDarkMode] = useState(true);
   return (
-    <div>
-      <Header></Header>
+    <div className={`${isDarkMode ? styles.dark : styles.light}`}>
+      <Header setIsDarkMode={setIsDarkMode}></Header>
       <div>aa</div>
       <div>test</div>
       <div>test</div>

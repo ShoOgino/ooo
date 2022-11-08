@@ -1,0 +1,10 @@
+.light {
+  background: #fff;
+  color: #333;
+  opacity: 1;
+}
+.dark {
+  background: #000;
+  color: #ddd;
+  opacity: 1;
+}
