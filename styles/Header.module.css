@@ -11,6 +11,11 @@
 }
 
 #scrollArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 10px; /* 余白 */
+
   width: 100%;
   top: 0;
   transition: 0.3s;
