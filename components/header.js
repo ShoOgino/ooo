@@ -33,7 +33,9 @@ const Header = (props) => {
       >
         タイトル
         <FormControlLabel
-          control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
+          control={
+            <MaterialUISwitch sx={{ m: 1 }} defaultChecked size="small" />
+          }
           className={styles.switch}
           onChange={handleToggle}
         />
