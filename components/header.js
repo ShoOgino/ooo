@@ -16,6 +16,11 @@ const Header = (props) => {
 
   const handleToggle = (event) => {
     props.setIsDarkMode(event.target.checked);
+    if (event.target.checked === true) {
+      localStorage.setItem("dark-mode-settings", "dark");
+    } else {
+      localStorage.setItem("dark-mode-settings", "light");
+    }
   };
 
   useEffect(() => {
@@ -33,10 +38,9 @@ const Header = (props) => {
       >
         タイトル
         <FormControlLabel
-          control={
-            <MaterialUISwitch sx={{ m: 1 }} defaultChecked size="small" />
-          }
+          control={<MaterialUISwitch sx={{ m: 1 }} size="small" />}
           className={styles.switch}
+          checked={props.isDarkMode}
           onChange={handleToggle}
         />
       </div>
