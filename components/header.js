@@ -17,9 +17,9 @@ const Header = (props) => {
   const handleToggle = (event) => {
     props.setIsDarkMode(event.target.checked);
     if (event.target.checked === true) {
-      localStorage.setItem("dark-mode-settings", "dark");
+      localStorage.setItem("isDarkMode", "dark");
     } else {
-      localStorage.setItem("dark-mode-settings", "light");
+      localStorage.setItem("isDarkMode", "light");
     }
   };
 

@@ -3,18 +3,20 @@ import Header from "../components/header";
 import styles from "../styles/Index.module.css";
 
 export default function Index() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem("dark-mode-settings") === "dark") {
+    if (localStorage.getItem("isDarkMode") === "dark") {
       setIsDarkMode(true);
-    } else if (localStorage.getItem("dark-mode-settings") === "light") {
+    } else if (localStorage.getItem("isDarkMode") === "light") {
       setIsDarkMode(false);
     }
   }, []);
 
   return (
-    <div className={`${isDarkMode ? styles.dark : styles.light}`}>
+    <div
+      className={`${isDarkMode ? styles.dark : styles.light} ${styles.back}`}
+    >
       <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}></Header>
       <div>aa</div>
       <div>test</div>
