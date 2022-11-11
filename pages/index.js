@@ -4,7 +4,7 @@ import styles from "../styles/Index.module.css";
 import Link from "next/link";
 import path from "path";
 import { promises as fs } from "fs";
-import { simpleGit, CleanOptions } from "simple-git";
+import { simpleGit } from "simple-git";
 
 export default function Index(props) {
   const [isDarkMode, setIsDarkMode] = useState(false);
