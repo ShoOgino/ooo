@@ -12,6 +12,9 @@
     "next": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "simple-git": "^3.14.1"
+    "react-markdown": "^8.0.3",
+    "remark-parse": "^10.0.1",
+    "simple-git": "^3.14.1",
+    "unified": "^10.1.2"
   }
 }
