@@ -36,7 +36,7 @@ const Header = (props) => {
           `}
         style={{ display: "flex" }}
       >
-        タイトル
+        ペンギンのおなか
         <FormControlLabel
           control={<MaterialUISwitch sx={{ m: 1 }} size="small" />}
           className={styles.switch}
