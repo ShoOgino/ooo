@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import styles from "../styles/Header.module.css";
 import MaterialUISwitch from "../components/switch.js";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import Link from "next/link";
 
 const Header = (props) => {
   const [isShow, setIsShow] = useState(true);
@@ -36,7 +37,7 @@ const Header = (props) => {
           `}
         style={{ display: "flex" }}
       >
-        ペンギンのおなか
+        <Link href={`/`}>ペンギンのおなか</Link>
         <FormControlLabel
           control={<MaterialUISwitch sx={{ m: 1 }} size="small" />}
           className={styles.switch}
