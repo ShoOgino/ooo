@@ -9,7 +9,7 @@ export default async function hello(req, res) {
   const git = simpleGit(workingDirectory);
   const log = await git.log({ file: filePath });
   const logs = log.all;
-  const revs = logs.map(async (item) => {
+  const revs = logs.map(async (item, index) => {
     const o = [
       "-p",
       item.hash +
@@ -18,6 +18,7 @@ export default async function hello(req, res) {
     ];
     const content = await git.catFile(o);
     const rev = {
+      id: index,
       content: content,
       date: item.date,
       message: item.message,

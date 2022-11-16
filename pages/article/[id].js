@@ -4,6 +4,10 @@ import Header from "../../components/header";
 
 export default function Article(props) {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isSelecteds, setIsSelecteds] = useState(
+    [...Array(props.revs.length)].map((_, i) => i == props.revs.length - 1)
+  );
+  console.log(isSelecteds);
 
   useEffect(() => {
     if (localStorage.getItem("isDarkMode") === "dark") {
@@ -13,11 +17,30 @@ export default function Article(props) {
     }
   }, []);
 
+  const handleSelect = (event) => {
+    console.log(event.target.value);
+    setIsSelecteds(isSelecteds.map((_, i) => i == event.target.value));
+  };
+
   return (
     <>
       <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}></Header>
+      <div className="col-auto my-1">
+        <select className="form-control" id="sample" onChange={handleSelect}>
+          {props.revs.map((rev) => (
+            <option value={rev.id} key={rev.id}>
+              {rev.id}
+            </option>
+          ))}
+        </select>
+      </div>
       {props.revs.map((rev) => (
-        <ReactMarkdown>{rev.content}</ReactMarkdown>
+        <div
+          key={rev.id}
+          style={{ display: isSelecteds[rev.id] ? "block" : "none" }}
+        >
+          <ReactMarkdown>{rev.content}</ReactMarkdown>
+        </div>
       ))}
     </>
   );
