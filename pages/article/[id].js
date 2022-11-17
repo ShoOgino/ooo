@@ -7,7 +7,6 @@ export default function Article(props) {
   const [isSelecteds, setIsSelecteds] = useState(
     [...Array(props.revs.length)].map((_, i) => i == props.revs.length - 1)
   );
-  console.log(isSelecteds);
 
   useEffect(() => {
     if (localStorage.getItem("isDarkMode") === "dark") {
