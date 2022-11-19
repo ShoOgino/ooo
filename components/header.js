@@ -21,8 +21,6 @@ const Header = (props) => {
 
   return (
     <>
-      <br />
-      <br />
       <div
         id={styles.scrollArea}
         className={`${isShow ? "" : styles.hide}
