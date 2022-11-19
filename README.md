@@ -1,71 +1,76 @@
-# With Docker
-
-This examples shows how to use Docker with Next.js based on the [deployment documentation](https://nextjs.org/docs/deployment#docker-image). Additionally, it contains instructions for deploying to Google Cloud Run. However, you can use any container-based deployment host.
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-docker nextjs-docker
-# or
-yarn create next-app --example with-docker nextjs-docker
-# or
-pnpm create next-app --example with-docker nextjs-docker
-```
-
-## Using Docker
-
-1. [Install Docker](https://docs.docker.com/get-docker/) on your machine.
-1. Build your container: `docker build -t nextjs-docker .`.
-1. Run your container: `docker run -p 3000:3000 nextjs-docker`.
-
-You can view your images created with `docker images`.
-
-### In existing projects
-
-To add support for Docker to an existing project, just copy the `Dockerfile` into the root of the project and add the following to the `next.config.js` file:
-
-```js
-// next.config.js
-module.exports = {
-  // ... rest of the configuration.
-  output: 'standalone',
-}
-```
-
-This will build the project as a standalone app inside the Docker image.
-
-## Deploying to Google Cloud Run
-
-1. Install the [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) so you can use `gcloud` on the command line.
-1. Run `gcloud auth login` to log in to your account.
-1. [Create a new project](https://cloud.google.com/run/docs/quickstarts/build-and-deploy) in Google Cloud Run (e.g. `nextjs-docker`). Ensure billing is turned on.
-1. Build your container image using Cloud Build: `gcloud builds submit --tag gcr.io/PROJECT-ID/helloworld --project PROJECT-ID`. This will also enable Cloud Build for your project.
-1. Deploy to Cloud Run: `gcloud run deploy --image gcr.io/PROJECT-ID/helloworld --project PROJECT-ID --platform managed`. Choose a region of your choice.
-
-   - You will be prompted for the service name: press Enter to accept the default name, `helloworld`.
-   - You will be prompted for [region](https://cloud.google.com/run/docs/quickstarts/build-and-deploy#follow-cloud-run): select the region of your choice, for example `us-central1`.
-   - You will be prompted to **allow unauthenticated invocations**: respond `y`.
-
-Or click the button below, authorize the script, and select the project and region when prompted:
-
-[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run/?git_repo=https://github.com/vercel/next.js.git&dir=examples/with-docker)
-
-## Running Locally
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# ホームページ作成
+## 報酬
+- 自分の知識や経験を大勢に公開するためのシステムを得る
+    - 自己紹介の場
+    - 人に貢献する
+    - 人との繋がりを得る
+- web関連技術の勉強
+- 目的志向の訓練
+- プログラミングの訓練
+- デザインの訓練
+## 完了条件
+### 要件
+- 機能
+    - ロジック
+        - 高速
+        - 履歴表示可能
+    - ビュー
+        - UIがシンプル
+        - ダークモード
+    - 管理
+        - 記事の管理(CRUD)が簡単
+        - デプロイが簡単
+### 最適化条件
+- [システム構築](../20200523_184744/readme.md)に準ずる
+## 実装
+### タイトル
+- Objective Oriented Optimizer
+### サーバ
+- Webarena indigo VPS(CPU2u, mem2GB, SSD40GB, 700円/月)
+### デザイン
+- タイトルバーに
+    - タイトル
+    - 電気のスイッチ
+- タイトルの横に電気のスイッチのデザインをおいて、それでライトモード・ダークモードを切り替える。
+- タイトルバーは下スクロールで消える。上スクロールで出てくる。
+- 検索バーは要らない。記事数も少ないし、googleでタイトルと組み合わせて検索できる。
+### ロジック
+- SSG: next.js
+- ルーティング: next.js
+- デザイン/レイアウト: react
+    - mdをhtml形式に変換:react-markdown
+- バージョン管理: git
+- コメント機能: utterances
+- フレームワーク
+    - node.js
+    - next.js
+        - react
+    - typescript
+- ディレクトリ構成
+    - node_modules/
+    - components/
+    - features/
+    - pages/
+        - index.tsx
+            - id: ファイル名
+            - タイトル: mdのh1から取得
+            - 配信日時: ファイル生成時刻(gitを利用)
+            - 更新回数: ファイル変更回数(gitを利用)
+        - article.tsx (id, ver)
+            - mdファイルをhtmlに変換して表示
+            - utteranceでコメント欄をつくる。
+    - public/
+        - yyyymmdd_hhmmss.${extension}
+        - yyyymmdd_hhmmss.md
+            - 中身は普通のmd
+    - readme.md
+- 記事更新
+    - publicフォルダ以下でmdファイルをCRUD → githubへpush → サーバ側でdocker build + docker run(コンテナ起動時にgithubから記事をpullしてくる)
+- デプロイ
+    1. サーバを用意
+        - インターネットにつながってて、ネットワーク設定可能
+        - Dockerをインストール
+    2. DNSサーバ設定
+    3. git clone
+    4. docker build -t nextjs-docker .
+    5. docker run -p 80:80 nextjs-docker

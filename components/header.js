@@ -15,35 +15,22 @@ const Header = (props) => {
     setScrollY(window.scrollY);
   };
 
-  const handleToggle = (event) => {
-    props.setIsDarkMode(event.target.checked);
-    if (event.target.checked === true) {
-      localStorage.setItem("isDarkMode", "dark");
-    } else {
-      localStorage.setItem("isDarkMode", "light");
-    }
-  };
-
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <>
+      <br />
+      <br />
       <div
         id={styles.scrollArea}
         className={`${isShow ? "" : styles.hide}
-          ${scrollY == 0 ? styles.top : styles.fixed}
+          ${scrollY == 0 ? styles.fixed : styles.fixed}
           `}
         style={{ display: "flex" }}
       >
-        <Link href={`/`}>ペンギンのおなか</Link>
-        <FormControlLabel
-          control={<MaterialUISwitch sx={{ m: 1 }} size="small" />}
-          className={styles.switch}
-          checked={props.isDarkMode}
-          onChange={handleToggle}
-        />
+        <Link href={`/`}>タイトル</Link>
       </div>
     </>
   );

@@ -3,18 +3,9 @@ import ReactMarkdown from "react-markdown";
 import Header from "../../components/header";
 
 export default function Article(props) {
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [isSelecteds, setIsSelecteds] = useState(
     [...Array(props.revs.length)].map((_, i) => i == props.revs.length - 1)
   );
-
-  useEffect(() => {
-    if (localStorage.getItem("isDarkMode") === "dark") {
-      setIsDarkMode(true);
-    } else if (localStorage.getItem("isDarkMode") === "light") {
-      setIsDarkMode(false);
-    }
-  }, []);
 
   const handleSelect = (event) => {
     console.log(event.target.value);
@@ -23,7 +14,7 @@ export default function Article(props) {
 
   return (
     <>
-      <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}></Header>
+      <Header></Header>
       <div className="col-auto my-1">
         <select className="form-control" id="sample" onChange={handleSelect}>
           {props.revs.map((rev) => (

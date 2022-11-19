@@ -8,7 +8,7 @@ export default async function hello(req, res) {
   const workingDirectory = process.cwd();
   const git = simpleGit(workingDirectory);
   const log = await git.log({ file: filePath });
-  const logs = log.all;
+  const logs = log.all.reverse();
   const revs = logs.map(async (item, index) => {
     const o = [
       "-p",

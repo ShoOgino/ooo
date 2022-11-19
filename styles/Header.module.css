@@ -2,21 +2,14 @@
   transform: translateY(-100%);
 }
 
-.top {
-  position: top;
-}
-
-.fixed {
-  position: fixed;
-}
-
 #scrollArea {
   /*display: flex;
   justify-content: center;*/
   align-items: center;
-  gap: 6px 10px; /* 余白 */
+  gap: 0px 10px; /* 余白 */
   background-color: #222;
   color: #ccc;
+  position: fixed;
 
   width: 100%;
   top: 0;

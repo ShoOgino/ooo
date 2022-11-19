@@ -1,15 +1,7 @@
-.light {
-  background: #bbb;
-  color: #333;
-  opacity: 1;
-  transition: 500ms;
-}
-.dark {
+.back {
   background: #333;
   color: #bbb;
   opacity: 1;
   transition: 500ms;
-}
-.back {
   height: 100%;
 }
