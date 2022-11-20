@@ -19,3 +19,7 @@ a {
 #__next {
   height: 100%;
 }
+
+.leftmargin {
+  margin-left: 300px;
+}

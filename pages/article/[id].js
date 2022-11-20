@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import ReactMarkdown from "react-markdown";
+import styles from "../../styles/Article.module.css";
 import Header from "../../components/header";
 
 export default function Article(props) {
@@ -27,6 +28,7 @@ export default function Article(props) {
       {props.revs.map((rev) => (
         <div
           key={rev.id}
+          className={styles.md}
           style={{ display: isSelecteds[rev.id] ? "block" : "none" }}
         >
           <ReactMarkdown>{rev.content}</ReactMarkdown>

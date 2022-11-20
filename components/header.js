@@ -1,7 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import styles from "../styles/Header.module.css";
-import MaterialUISwitch from "../components/switch.js";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import Link from "next/link";
 
 const Header = (props) => {
@@ -24,11 +22,13 @@ const Header = (props) => {
       <div
         id={styles.scrollArea}
         className={`${isShow ? "" : styles.hide}
-          ${scrollY == 0 ? styles.fixed : styles.fixed}
+          ${scrollY == 0 ? styles.fixed : styles.fixed} ${styles.marginLeft}
           `}
         style={{ display: "flex" }}
       >
-        <Link href={`/`}>タイトル</Link>
+        <div className={styles.title}>
+          <Link href={`/`}>タイトル</Link>
+        </div>
       </div>
     </>
   );
