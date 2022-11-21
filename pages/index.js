@@ -7,11 +7,13 @@ export default function Index(props) {
   return (
     <div className={`${styles.back}`}>
       <Header></Header>
-      {props.posts.map((post) => (
-        <div>
-          <Link href={`/article/${post.filename}`}>{post.title}</Link>
-        </div>
-      ))}
+      <div className={styles.posts}>
+        {props.posts.map((post) => (
+          <div>
+            <Link href={`/article/${post.filename}`}>{post.title}</Link>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
