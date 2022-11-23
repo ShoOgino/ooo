@@ -9,7 +9,9 @@ const Header = (props) => {
   scrollYRef.current = scrollY;
 
   const handleScroll = () => {
-    setIsShow(window.scrollY < scrollYRef.current);
+    setIsShow(
+      (window.scrollY < scrollYRef.current) | (scrollYRef.current < 30)
+    );
     setScrollY(window.scrollY);
   };
 
@@ -19,6 +21,7 @@ const Header = (props) => {
 
   return (
     <>
+      <div style={{ height: "20px" }}></div>
       <div
         id={styles.scrollArea}
         className={`${isShow ? "" : styles.hide}
