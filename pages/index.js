@@ -21,7 +21,6 @@ export default function Index(props) {
 export const getStaticProps = async () => {
   const res = await fetch("http://localhost:3000/api/articles");
   const posts = await res.json();
-  //console.log(posts);
   const test = await Promise.all(posts);
   return {
     props: {

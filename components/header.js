@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import styles from "../styles/Header.module.css";
 import Link from "next/link";
+import ImageBack from "../public/back.png";
 
 const Header = (props) => {
   const [isShow, setIsShow] = useState(true);
@@ -30,6 +31,7 @@ const Header = (props) => {
         style={{ display: "flex" }}
       >
         <div className={styles.title}>
+          <img src={ImageBack} />
           <Link href={`/`}>タイトル</Link>
         </div>
       </div>

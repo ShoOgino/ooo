@@ -2,7 +2,7 @@ import path from "path";
 import { simpleGit } from "simple-git";
 
 export default async function hello(req, res) {
-  const postsDirectory = path.join(process.cwd(), "public");
+  const postsDirectory = path.join(process.cwd(), "public", "articles");
   const filename = req.query.id;
   const filePath = path.join(postsDirectory, filename);
   const workingDirectory = process.cwd();
