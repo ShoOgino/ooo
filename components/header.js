@@ -31,7 +31,6 @@ const Header = (props) => {
         style={{ display: "flex" }}
       >
         <div className={styles.title}>
-          <img src={ImageBack} />
           <Link href={`/`}>タイトル</Link>
         </div>
       </div>

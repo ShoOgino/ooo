@@ -4,6 +4,7 @@ import styles from "../../styles/Article.module.css";
 import Header from "../../components/header";
 
 export default function Article(props) {
+  console.log(props.revs);
   const [isSelecteds, setIsSelecteds] = useState(
     [...Array(props.revs.length)].map((_, i) => i == props.revs.length - 1)
   );
@@ -19,7 +20,11 @@ export default function Article(props) {
       <div className="col-auto my-1">
         <select className="form-control" id="sample" onChange={handleSelect}>
           {props.revs.map((rev) => (
-            <option value={rev.id} key={rev.id}>
+            <option
+              value={rev.id}
+              key={rev.id}
+              selected={isSelecteds[Number(rev.id)]}
+            >
               {rev.id}
             </option>
           ))}
