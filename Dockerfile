@@ -19,6 +19,10 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+CMD ["curl", "http://127.0.0.1:3000"]
+#Install git
+RUN apk add git
+
 #RUN yarn build
 RUN npm run build
 
@@ -41,5 +45,3 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 USER nextjs
 
 CMD ["node", "server.js"]
-
-#todo : 自動的にpullしてくるようにする。
