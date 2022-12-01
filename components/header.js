@@ -22,7 +22,7 @@ const Header = (props) => {
 
   return (
     <>
-      <div style={{ height: "20px" }}></div>
+      <div style={{ height: "21px" }}></div>
       <div
         id={styles.scrollArea}
         className={`${isShow ? "" : styles.hide}
@@ -30,8 +30,14 @@ const Header = (props) => {
           `}
         style={{ display: "flex" }}
       >
-        <div className={styles.title}>
-          <Link href={`/`}>タイトル</Link>
+        <div className={styles.outer}>
+          <Link
+            href={`/`}
+            style={{ fontSize: 18, verticalAlign: -3, marginRight: 5 }}
+          >
+            ⮐
+          </Link>
+          タイトル
         </div>
       </div>
     </>
