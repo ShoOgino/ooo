@@ -9,7 +9,7 @@ import { simpleGit } from "simple-git";
 export default function Index(props) {
   return (
     <div className={`${styles.back}`}>
-      <Header></Header>
+      <Header flag={true}></Header>
       <div className={styles.posts}>
         {props.posts.map((post) => (
           <div>

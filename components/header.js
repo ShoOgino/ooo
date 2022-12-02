@@ -31,12 +31,14 @@ const Header = (props) => {
         style={{ display: "flex" }}
       >
         <div className={styles.outer}>
-          <Link
-            href={`/`}
-            style={{ fontSize: 18, verticalAlign: -3, marginRight: 5 }}
-          >
-            ⮐
-          </Link>
+          {!props.flag && (
+            <Link
+              href={`/`}
+              style={{ fontSize: 18, verticalAlign: -3, marginRight: 5 }}
+            >
+              ⮐
+            </Link>
+          )}
           タイトル
         </div>
       </div>
