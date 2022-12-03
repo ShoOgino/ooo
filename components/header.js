@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import styles from "../styles/Header.module.css";
-import Link from "next/link";
+import Title from "./title.js";
 import ImageBack from "../public/back.png";
+import Link from "next/link";
 
 const Header = (props) => {
   const [isShow, setIsShow] = useState(true);
@@ -39,7 +40,7 @@ const Header = (props) => {
               ⮐
             </Link>
           )}
-          タイトル
+          <Title element={props.selecter} />
         </div>
       </div>
     </>

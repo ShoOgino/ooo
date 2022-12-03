@@ -16,23 +16,24 @@ export default function Article(props) {
     setIsSelecteds(isSelecteds.map((_, i) => i == event.target.value));
   };
 
+  const selecter = (
+    <select id="sample" onChange={handleSelect}>
+      {props.revs.map((rev) => (
+        <option
+          value={rev.id}
+          key={rev.id}
+          selected={isSelecteds[Number(rev.id)]}
+        >
+          {rev.id}
+        </option>
+      ))}
+    </select>
+  );
+
   return (
     <>
-      <Header></Header>
+      <Header selecter={selecter}></Header>
       <div className={styles.background}>
-        <div className="col-auto my-1">
-          <select className="form-control" id="sample" onChange={handleSelect}>
-            {props.revs.map((rev) => (
-              <option
-                value={rev.id}
-                key={rev.id}
-                selected={isSelecteds[Number(rev.id)]}
-              >
-                {rev.id}
-              </option>
-            ))}
-          </select>
-        </div>
         {props.revs.map((rev) => (
           <div
             key={rev.id}
