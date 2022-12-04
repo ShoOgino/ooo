@@ -17,14 +17,36 @@ export default function Article(props) {
   };
 
   const selecter = (
-    <select id="sample" onChange={handleSelect}>
+    <select
+      id="sample"
+      onChange={handleSelect}
+      style={{
+        border: 0,
+        backgroundColor: "#222",
+        color: "#ccc",
+        fontSize: 15,
+        fontFamily: [
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "Oxygen",
+          "Ubuntu",
+          "Cantarell",
+          "Fira Sans",
+          "Droid Sans",
+          "Helvetica Neue",
+          "sans-serif",
+        ],
+      }}
+    >
       {props.revs.map((rev) => (
         <option
           value={rev.id}
           key={rev.id}
           selected={isSelecteds[Number(rev.id)]}
         >
-          {rev.id}
+          ver{rev.id}
         </option>
       ))}
     </select>
